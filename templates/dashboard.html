@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard - Daily Expenses</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='dashboard.css') }}">
+</head>
+
+<body>
+
+    <!-- Background blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="logo">ExpenseTracker</div>
+        <div class="nav-links">
+            <span>Welcome, <b>{{ username }}</b></span>
+            <a href="{{ url_for('logout') }}" class="btn-logout">Log Out</a>
+        </div>
+    </nav>
+
+    <!-- Main -->
+    <main class="container">
+
+        <!-- Add Expense -->
+        <section class="glass-card">
+            <h3>Add New Expense</h3>
+
+            <form action="{{ url_for('dashboard') }}" method="POST" class="add-form">
+                <div class="input-group">
+                    <label>Title</label>
+                    <input type="text" name="title" placeholder="e.g. Groceries" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Amount</label>
+                    <input type="number" name="amount" placeholder="0.00" required>
+                </div>
+
+                <div class="input-group">
+                    <label>Date</label>
+                    <input type="date" name="date" required>
+                </div>
+
+                <div class="input-group button-group">
+                    <label>&nbsp;</label>
+                    <button type="submit" class="btn-primary">Add Expense</button>
+                </div>
+
+            </form>
+        </section>
+
+        <!-- Expense List -->
+        <section class="glass-card">
+            <h3>Your Expenses</h3>
+
+            <div class="table-container">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Title</th>
+                            <th>Amount</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% if expenses %}
+                        {% for expense in expenses %}
+                        <tr>
+                            <td>{{ expense.date }}</td>
+                            <td>{{ expense.title }}</td>
+                            <td>₹{{ expense.amount }}</td>
+                            <td class="actions-cell">
+                                <a href="{{ url_for('update_expense', expense_id=expense.id) }}"
+                                    class="btn-edit">Update</a>
+                                <a href="{{ url_for('delete_expense', expense_id=expense.id) }}" class="btn-delete"
+                                    onclick="return confirm('Are you sure?')">Delete</a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                        {% else %}
+                        <tr>
+                            <td colspan="4" style="text-align:center;">No expenses recorded yet.</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>
+            </div>
+
+            <!-- Total -->
+            <div class="total-section">
+                <form action="{{ url_for('dashboard') }}" method="POST">
+                    <button type="submit" name="calculate_total" class="btn-outline">
+                        Calculate Total
+                    </button>
+                </form>
+
+                {% if total_amount is not none %}
+                <h3 class="total-amount">Total: ₹{{ total_amount }}</h3>
+                {% endif %}
+            </div>
+        </section>
+
+    </main>
+
+</body>
+
+</html>

@@ -1,0 +1,54 @@
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Expenses System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Daily Expenses Record System</h1>
+            <p>Track your daily spending conveniently.</p>
+        </header>
+        <div class="actions">
+            <a href="{{ url_for('signup') }}" class="btn">Sign Up</a>
+            <a href="{{ url_for('login') }}" class="btn btn-secondary">Log In</a>
+        </div>
+    </div>
+</body>
+</html> -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daily Expenses System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <!-- Background blobs -->
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+
+    <div class="container">
+        <div class="glass-card">
+            <h1>Daily Expenses</h1>
+            <p>
+                A smart and beautiful way to track your daily spending,  
+                stay in control, and build better money habits.
+            </p>
+
+            <div class="actions">
+                <a href="{{ url_for('signup') }}" class="btn btn-primary">Get Started</a>
+                <a href="{{ url_for('login') }}" class="btn btn-ghost">Log In</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
+

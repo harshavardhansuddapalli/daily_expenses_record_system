@@ -1,0 +1,154 @@
+/* RESET */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* BODY */
+body {
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    min-height: 100vh;
+    background: #0f172a;
+    color: #ffffff;
+    overflow: hidden;
+}
+
+/* BACKGROUND BLOBS */
+.blob {
+    position: absolute;
+    width: 420px;
+    height: 420px;
+    border-radius: 50%;
+    filter: blur(120px);
+    opacity: 0.6;
+}
+
+.blob-1 {
+    background: #22c55e;
+    top: -120px;
+    left: -120px;
+}
+
+.blob-2 {
+    background: #38bdf8;
+    bottom: -120px;
+    right: -120px;
+}
+
+/* CONTAINER */
+.container {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem;
+    position: relative;
+    z-index: 1;
+}
+
+/* GLASS CARD */
+.glass-card {
+    width: 100%;
+    max-width: 420px;
+    padding: 2.8rem 2.4rem;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(18px);
+    border-radius: 22px;
+    border: 1px solid rgba(255, 255, 255, 0.15);
+
+    box-shadow: 0 30px 80px rgba(0,0,0,0.4);
+}
+
+/* TITLE */
+.glass-card h2 {
+    text-align: center;
+    font-size: 2rem;
+    margin-bottom: 1.8rem;
+    background: linear-gradient(90deg, #22c55e, #38bdf8);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+/* ERROR */
+.error {
+    color: #fca5a5;
+    text-align: center;
+    margin-bottom: 1rem;
+}
+
+/* FORM */
+.form-group {
+    margin-bottom: 1.2rem;
+}
+
+label {
+    display: block;
+    margin-bottom: 0.4rem;
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+input {
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    background: rgba(255, 255, 255, 0.12);
+    color: #ffffff;
+    font-size: 1rem;
+}
+
+input:focus {
+    outline: none;
+    border-color: #38bdf8;
+    box-shadow: 0 0 0 2px rgba(56, 189, 248, 0.3);
+}
+
+/* BUTTON */
+.btn-primary {
+    width: 100%;
+    margin-top: 1.5rem;
+    padding: 0.8rem;
+    border-radius: 12px;
+    border: none;
+    cursor: pointer;
+
+    background: linear-gradient(90deg, #22c55e, #16a34a);
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
+
+    transition: all 0.25s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 12px 30px rgba(34, 197, 94, 0.5);
+}
+
+/* SWITCH AUTH */
+.switch-auth {
+    text-align: center;
+    margin-top: 1.5rem;
+    font-size: 0.9rem;
+    color: #d1d5db;
+}
+
+.switch-auth a {
+    color: #38bdf8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.switch-auth a:hover {
+    text-decoration: underline;
+}
+
+/* RESPONSIVE */
+@media (max-width: 480px) {
+    .glass-card {
+        padding: 2.2rem 1.6rem;
+    }
+}
