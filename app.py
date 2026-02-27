@@ -14,7 +14,7 @@ def home():
         return redirect(url_for('dashboard'))
     return render_template('index.html')
 
-
+#to sign up new user
 @app.route('/signup', methods=['GET', 'POST'])
 def signup():
     if request.method == 'POST':
@@ -35,7 +35,7 @@ def signup():
     
     return render_template('signup.html')
 
-
+## to log in existing user
 @app.route('/login', methods=['GET', 'POST'])
 def login():
     if request.method == 'POST':
@@ -62,7 +62,7 @@ def login():
 
     return render_template('login.html')
 
-
+# Dashboard to add, view, update, delete expenses
 @app.route('/dashboard', methods=['GET', 'POST'])
 def dashboard():
     username = request.cookies.get('user')
